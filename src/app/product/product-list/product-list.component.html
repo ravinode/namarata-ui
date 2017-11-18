@@ -1,0 +1,57 @@
+<h4>Catagory Filter</h4>
+<div droppable (onDrop)="onItemDrop($event)">
+  <label draggable *ngFor="let category of categoryList" [dragData]="category">
+        <label class="label label-danger"> {{category}} </label>
+  <span> </span>
+  </label>
+</div>
+<br>
+<div class="panel panel-default" droppable (onDrop)="onItemDrop($event)">
+  <div class="panel-heading ">Drop Items here to filter</div>
+  <div (click)="onClear()" class="pull-right glyphicon glyphicon-remove">
+  </div>
+  <div class="panel-body">
+
+    <label *ngFor="let category of droppedItems">
+        <label class="label label-danger">{{category}}  </label>
+    <input type="hidden" [(ngModel)]=c ategoryValue>
+    <span> </span>
+    </label>
+
+  </div>
+</div>
+<h4 class="header-list"> Product list </h4>
+<hr>
+<div *ngFor="let product of productList | filterPipe: categoryValue">
+  <div class="panel panel-default">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">{{ product.name }}</h3>
+    </div>
+
+    <div class="panel-body">
+      <span title = "{{ product._id}} " class="pull-left label label-default">{{ product._id | shortenPipe}}</span>
+      <br>
+      <span class="pull-left">
+        <img
+          src = "{{product.producturl}}"
+          class="img-responsive"
+          style="max-height: 100px;">
+        </span>
+
+      <div class="pull-right">
+        <br>
+        <h5 class="label label-default">
+          {{ product.category }}</h5>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h5 class="label label-warning">
+          $ {{ product.price }}</h5>
+        <hr>
+        <br>
+        <button type="button" (click)="deleteServer(product._id)" class="btn btn-danger">Delete</button> &nbsp;&nbsp;
+        <button type="button" (click)="onEdit(product._id,product.name,product.category,product.description,product.producturl,product.price)"
+          class="btn btn-primary">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
