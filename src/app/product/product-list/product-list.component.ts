@@ -53,7 +53,7 @@ export class ProductListComponent implements OnInit {
     this.filterPipe.transform(this.droppedItems, this.categoryValue);
   }
   // Logic to edit
-  onEdit(id, name, category, description, price,sellingprice,size) {
+  onEdit(id, name, category, description, price,sellingprice,size,color) {
     this.updateProduct.push(
       {
         _id: id,
@@ -62,6 +62,7 @@ export class ProductListComponent implements OnInit {
         category: category,
         sellingprice:sellingprice,
         price: price,
+        color: color,
         size:size
       });
     this.productService.productUpdated.emit(this.updateProduct);
