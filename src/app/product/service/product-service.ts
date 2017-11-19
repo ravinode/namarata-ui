@@ -26,7 +26,7 @@ export class ProductService {
 // Add new Project API call
     createProduct(products: any) {
         const headers = new Headers({'Content-type': 'application/json'});
-        const result = this.http.post('https://namarata.herokuapp.com/create', products[0], {headers});
+        const result = this.http.post('https://namrata.herokuapp.com/create', products[0], {headers});
         return result;
     }
 
