@@ -14,7 +14,7 @@
 
     <label *ngFor="let category of droppedItems">
         <label class="label label-danger">{{category}}  </label>
-    <input type="hidden" [(ngModel)]=c ategoryValue>
+    <input type="hidden" [(ngModel)]=categoryValue>
     <span> </span>
     </label>
 
@@ -30,26 +30,19 @@
     </div>
 
     <div class="panel-body">
-      <span title = "{{ product._id}} " class="pull-left label label-default">{{ product._id | shortenPipe}}</span>
-      <br>
-      <span class="pull-left">
-        <img
-          src = "{{product.producturl}}"
-          class="img-responsive"
-          style="max-height: 100px;">
-        </span>
-
+      <h3 class="panel-title">Product ID : <b>{{ product._id }}</b></h3>
+      <hr>
+      <h5 class="label label-default">
+        {{ product.description }}</h5>
       <div class="pull-right">
-        <br>
         <h5 class="label label-default">
           {{ product.category }}</h5>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <h5 class="label label-warning">
           $ {{ product.price }}</h5>
         <hr>
-        <br>
-        <button type="button" (click)="deleteServer(product._id)" class="btn btn-danger">Delete</button> &nbsp;&nbsp;
-        <button type="button" (click)="onEdit(product._id,product.name,product.category,product.description,product.producturl,product.price)"
+        <button type="button" (click)="deleteServer(product._id)" class="btn btn-danger">Delete</button>
+        <button type="button" (click)="onEdit(product._id,product.name,product.category,
+        product.description,product.price,product.sellingprice,product.size)"
           class="btn btn-primary">Edit</button>
       </div>
     </div>

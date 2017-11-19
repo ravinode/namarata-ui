@@ -13,7 +13,7 @@ export class ProductService {
     constructor(private http: Http) {}
 // List the product API call
     getProductList() {
-        return this.http.get('https://still-ravine-76105.herokuapp.com/listProduct')
+        return this.http.get('https://namrata.herokuapp.com/listProduct')
         .map((response: Response) => {
             return response.json();
         }
@@ -26,25 +26,25 @@ export class ProductService {
 // Add new Project API call
     createProduct(products: any) {
         const headers = new Headers({'Content-type': 'application/json'});
-        const result = this.http.post('https://still-ravine-76105.herokuapp.com/create', products[0], {headers});
+        const result = this.http.post('https://namarata.herokuapp.com/create', products[0], {headers});
         return result;
     }
 
 //Update API
     updateProduct(products: any, id: String) {
         const headers = new Headers ({ 'Content-type': 'application/json' });
-        const result = this.http.patch('https://still-ravine-76105.herokuapp.com/update/'+ id, products[0], { headers });
+        const result = this.http.patch('https://namrata.herokuapp.com/update/'+ id, products[0], { headers });
         return result;
     }
 
 // Delete the server from Mongo DB
     deleteServer(id: String) {
-        const result = this.http.delete('https://still-ravine-76105.herokuapp.com/delete/' + id);
+        const result = this.http.delete('https://namrata.herokuapp.com/delete/' + id);
         return result;
     }
 // API call for Category
     getCategory() {
-        return this.http.get('https://still-ravine-76105.herokuapp.com/getCategory')
+        return this.http.get('https://namrata.herokuapp.com/getCategory')
             .map((response: Response) => {
                 return response.json();
             }

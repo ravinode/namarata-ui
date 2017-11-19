@@ -36,6 +36,11 @@
                 <input type="text" id="productcost" formControlName="productcost" class="input-group mb-2 mr-sm-2 mb-sm-0">
               </div>
 
+              <div class="form-group">
+                  <label for="productscost">Product Selling Cost</label>
+                  <input type="text" id="productscost" formControlName="productscost" class="input-group mb-2 mr-sm-2 mb-sm-0">
+                </div>
+
               <input [disabled] = !productForm.valid (click)="onAddProduct()" class="btn btn-primary" 
               type="button" name="{{buttonAddUpd}}" value="{{buttonAddUpd}}">
 
@@ -46,10 +51,11 @@
 
               <div class="form-group">
                   <label for="productcount">Count</label>
-                  <input type="text" id="productcount" formControlName="productcount" class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <input type="text" id="productcount" ngModel 
+                  name = "count" formControlName="productcount" class="input-group mb-2 mr-sm-2 mb-sm-0">
                 </div>
 
-              <button  [disabled] = !productForm.valid class="btn btn-primary" (click)="onReset()" type="submit">Bulk Insert</button>
+              <button  [disabled] = !productForm.valid class="btn btn-primary" (click)="onBulkInsert()" type="submit">Bulk Insert</button>
               
               
               </div>
