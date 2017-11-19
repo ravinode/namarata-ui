@@ -32,6 +32,7 @@ export class ProductAddComponent implements OnInit {
     'productcost': new FormControl(null, Validators.required),
     'productscost': new FormControl(null, Validators.required),
     'productsize': new FormControl(null, Validators.required),
+    'productcolor': new FormControl(null, Validators.required),
     'productcount': new FormControl(null),
 
     });
@@ -46,7 +47,8 @@ export class ProductAddComponent implements OnInit {
           'productcategory': result[0].category,
           'productcost': result[0].price,
           'productscost':result[0].sellingprice,
-          'productsize':result[0].size
+          'productsize':result[0].size,
+          'productcolor': result[0].color
         });
       }
     );
@@ -71,7 +73,8 @@ export class ProductAddComponent implements OnInit {
         category: this.productForm.get('productcategory').value,
         price: this.productForm.get('productcost').value,
         sellingprice: this.productForm.get('productscost').value,
-        size: this.productForm.get('productsize').value
+        size: this.productForm.get('productsize').value,
+        color: this.productForm.get('productcolor').value
       });
       
       if (this.buttonAddUpd === 'Add') {
@@ -92,6 +95,7 @@ export class ProductAddComponent implements OnInit {
             price: this.productForm.get('productcost').value,
             sellingprice: this.productForm.get('productscost').value,
             size: this.productForm.get('productsize').value,
+            color: this.productForm.get('productcolor').value
           });
   
         this.productService.updateProduct(this.products,this.updateID).subscribe(
@@ -117,7 +121,8 @@ export class ProductAddComponent implements OnInit {
         category: this.productForm.get('productcategory').value,
         price: this.productForm.get('productcost').value,
         sellingprice: this.productForm.get('productscost').value,
-        size: this.productForm.get('productsize').value
+        size: this.productForm.get('productsize').value,
+        color: this.productForm.get('productcolor').value
       });
 // update if button name is Add
     if (this.buttonAddUpd === 'Add') {
@@ -140,6 +145,7 @@ export class ProductAddComponent implements OnInit {
           price: this.productForm.get('productcost').value,
           sellingprice: this.productForm.get('productscost').value,
           size: this.productForm.get('productsize').value,
+          color: this.productForm.get('productcolor').value
         });
 
       this.productService.updateProduct(this.products,this.updateID).subscribe(
